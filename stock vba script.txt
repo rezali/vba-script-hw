@@ -1,0 +1,33 @@
+Sub stock():
+    Dim tickername As String
+    Dim voltotal As Double
+    voltotal = 0
+    
+    Dim summarytablerow As Integer
+    summarytablerow = 2
+     
+    For i = 2 To 43398
+    
+        If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
+        
+            tickername = Cells(i, 1).Value
+
+            voltotal = voltotal + Cells(i, 7).Value
+      
+    Range("I" & summarytablerow).Value = tickername
+    
+    Range("J" & summarytablerow).Value = voltotal
+    
+    summarytablerow = summarytablerow + 1
+    
+    voltotal = 0
+        
+        Else
+
+        voltotal = voltotal + Cells(i, 7).Value
+        
+        End If
+        
+    Next i
+End Sub
+
